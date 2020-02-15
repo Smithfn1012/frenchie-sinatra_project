@@ -1,0 +1,33 @@
+<h1>Edit Dog</h1>
+
+<form action="/dogs<%= @dog.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div>
+    <label for="name">Name: </label>
+    <input type="text" name="dog[name]" id="name" value="><%=
+    @dog.name %>%">
+  </div>
+  <div>
+    <label for="gender">Gender: </label>
+    <input type="text" name="dog[gender]" id="gender">
+  </div>
+  <div>
+    <label for="coat_color">Coat Color: </label>
+    <input type="text" name="dog[coat_color]" id="coat color">
+  </div>
+  <div>
+    <label for="age">Age: </label>
+    <input type="text" name="dog[age]" id="age">
+  </div>
+  <div>
+    <label for="for_sale">For Sale?: </label>
+    <input type="checkbox" name="dog[for_sale]" id="for_sale">
+    <%= 'checked' if @dog.for_sale %>>
+  </div>
+  <div>
+    <label for="price">Price: </label>
+    <input type="text" name="dog[price]" id="price">
+  </div>
+
+  <input type="submit" value="Edit Dog">
+</form>
