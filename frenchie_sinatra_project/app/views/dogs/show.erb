@@ -1,0 +1,15 @@
+<h1>Dog: <%= @dog.name %></h1>
+
+<p>For Sale? <%= @dog.for_sale ? 'Yes' : 'No' %></p>
+
+<% if current_user.id == @dog.user_id %>
+    <ul>
+        <li><a href="/dogs/"<%= @dog.id %>/edit">Edit Dog</a></li>
+    </ul>
+    <form action="/dogs/<%= @dog.id %>"method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete Dog">
+    </form>
+
+
+<% end %>
