@@ -13,6 +13,10 @@ class SessionsController < ApplicationController
     end
 end
 
+    get '/dogs' do
+        erb :index
+    end
+
     get '/logout' do
         session.clear
         redirect '/'

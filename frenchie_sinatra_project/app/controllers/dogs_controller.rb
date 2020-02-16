@@ -25,19 +25,19 @@ class DogsController < ApplicationController
     end
   end
 
-  get '/dogs/:id' do
-    redirect_if_not_logged_in
-    find_dog(params[:id])
-
-    erb :'/dogs/show'
-  end
-
   get '/dogs/:id/edit' do
     redirect_if_not_logged_in
     find_dog(params[:id])
     authorize_user_to_dog(@dog)
 
     erb :'/dogs/edit'
+  end
+
+  get '/dogs/:id' do
+    redirect_if_not_logged_in
+    find_dog(params[:id])
+
+    erb :'/dogs/show'
   end
 
   patch '/dogs/:id' do
