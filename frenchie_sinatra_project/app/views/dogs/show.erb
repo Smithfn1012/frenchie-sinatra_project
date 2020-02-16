@@ -1,10 +1,17 @@
 <h1>Dog: <%= @dog.name %></h1>
 
+<p>Name: <%= @dog.name %></p>
+<p>Gender: <%= @dog.gender %></p>
+<p>Coat Color: <%= @dog.coat_color %></p>
 <p>For Sale? <%= @dog.for_sale ? 'Yes' : 'No' %></p>
+<p>Price: <%= @dog.price %></p>
 
 <% if current_user.id == @dog.user_id %>
     <ul>
-        <li><a href="/dogs/"<%= @dog.id %>/edit">Edit Dog</a></li>
+        <li><a href="/dogs/<%= @dog.id %>/edit">Edit Dog</a></li>
+    </ul>
+    <ul>
+        <li><a href="/dogs/<%= @dog.id %>/index">View All Dogs</a></li>
     </ul>
     <form action="/dogs/<%= @dog.id %>"method="post">
         <input type="hidden" name="_method" value="delete">

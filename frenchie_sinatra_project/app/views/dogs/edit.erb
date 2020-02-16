@@ -1,11 +1,11 @@
 <h1>Edit Dog</h1>
 
-<form action="/dogs<%= @dog.id %>" method="post">
+<form action="/dogs/ <%= @dog.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
   <div>
     <label for="name">Name: </label>
-    <input type="text" name="dog[name]" id="name" value="><%=
-    @dog.name %>%">
+    <input type="text" name="dog[name]" id="name" value="<%=
+    @dog.name %>">
   </div>
   <div>
     <label for="gender">Gender: </label>
