@@ -8,10 +8,7 @@
 
 <% if current_user.id == @dog.user_id %>
     <ul>
-        <li><a href="/dogs/<%= @dog.id %>/edit">Edit Dog</a></li>
-    </ul>
-    <ul>
-        <li><a href="/dogs/<%= @dog.id %>/index">View All Dogs</a></li>
+        <li><a href="/dogs/"<%= @dog.id %>/edit">Edit Dog</a></li>
     </ul>
     <form action="/dogs/<%= @dog.id %>"method="post">
         <input type="hidden" name="_method" value="delete">

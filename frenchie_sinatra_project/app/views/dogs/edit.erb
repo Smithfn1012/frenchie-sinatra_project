@@ -1,10 +1,10 @@
 <h1>Edit Dog</h1>
 
-<form action="/dogs/ <%= @dog.id %>" method="post">
+<form action="/dogs/<%= @dog.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
   <div>
     <label for="name">Name: </label>
-    <input type="text" name="dog[name]" id="name" value="<%=
+    <input type="text" name="dog[name]" id="name" value="><%=
     @dog.name %>">
   </div>
   <div>
@@ -22,7 +22,7 @@
   <div>
     <label for="for_sale">For Sale?: </label>
     <input type="checkbox" name="dog[for_sale]" id="for_sale">
-    <%= 'checked' if @dog.for_sale %>>
+    <%= 'checked' if @dog.name %>>
   </div>
   <div>
     <label for="price">Price: </label>

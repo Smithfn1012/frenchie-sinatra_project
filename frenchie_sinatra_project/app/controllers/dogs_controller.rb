@@ -10,7 +10,7 @@ class DogsController < ApplicationController
     end
   end
 
-  post '/dogs' do
+  post '/dogs/' do
       post = current_user.dogs.build(params[:dog])
       if post.save
         redirect '/dogs'
@@ -38,14 +38,6 @@ class DogsController < ApplicationController
     authorize_user_to_dog(@dog)
 
     erb :'dogs/edit'
-  end
-
-  get '/dogs/:id/index' do
-    redirect_if_not_logged_in
-    find_dog(params[:id])
-    authorize_user_to_dog(@dog)
-
-    erb :'dogs/index'
   end
 
   patch '/dogs/:id' do
