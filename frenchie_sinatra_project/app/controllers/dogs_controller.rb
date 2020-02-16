@@ -10,26 +10,26 @@ class DogsController < ApplicationController
     end
   end
 
-  post '/dogs/' do
-      post = current_user.dogs.build(params[:dog])
-      if post.save
-        redirect '/dogs'
-      else
-        erb :'/dogs/new'
-      end
-  end
-
   get '/dogs/new' do
     redirect_if_not_logged_in
     
     erb :'dogs/new'
   end
 
+  post '/dogs' do
+    post = current_user.dogs.build(params[:dog])
+    if post.save
+      redirect '/dogs'
+    else
+      erb :'dogs/new'
+    end
+  end
+
   get '/dogs/:id' do
     redirect_if_not_logged_in
     find_dog(params[:id])
 
-    erb :'dogs/show'
+    erb :'/dogs/show'
   end
 
   get '/dogs/:id/edit' do
@@ -37,7 +37,7 @@ class DogsController < ApplicationController
     find_dog(params[:id])
     authorize_user_to_dog(@dog)
 
-    erb :'dogs/edit'
+    erb :'/dogs/edit'
   end
 
   patch '/dogs/:id' do
@@ -48,7 +48,7 @@ class DogsController < ApplicationController
     if @dog.update(params[:dog])
       redirect "/dogs/#{@dog.id}"
     else
-      erb :'/dogs/edit'
+      erb :'dogs/edit'
     end
   end
 
@@ -68,4 +68,4 @@ class DogsController < ApplicationController
     redirect '/' unless dog.user_id == current_user.id
   end
 end
-
+ 
